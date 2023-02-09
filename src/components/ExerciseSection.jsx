@@ -6,25 +6,27 @@ export default function ExerciseSection(props) {
   const { title, exercises } = props;
 
   return (
-    <section className="mx-10 mb-5 pb-5">
-      <h3 className="text-center text-2xl text-white p-2">{title}</h3>
+    exercises && (
+      <section className="mx-10 mb-5 pb-5">
+        <h3 className="text-center text-2xl text-white p-2">{title}</h3>
 
-      <Carousel
-        show={4.3}
-        dynamic
-        responsive
-        leftArrow={<LeftArrow />}
-        rightArrow={<RightArrow />}
-      >
-        {exercises.map((exercise, index) => {
-          return (
-            <div key={index}>
-              <ExerciseCard {...exercise} />
-            </div>
-          );
-        })}
-      </Carousel>
-    </section>
+        <Carousel
+          show={4.2}
+          dynamic
+          responsive
+          leftArrow={<LeftArrow />}
+          rightArrow={<RightArrow />}
+        >
+          {exercises.map((exercise, index) => {
+            return (
+              <div key={index}>
+                <ExerciseCard {...exercise} />
+              </div>
+            );
+          })}
+        </Carousel>
+      </section>
+    )
   );
 }
 
