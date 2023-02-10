@@ -7,10 +7,10 @@ export default function ExerciseSection(props) {
 
   return (
     exercises && (
-      <section className="mx-10 mb-5 pb-5">
+      <section className="mx-10 p-2 overflow-auto">
         <h3 className="text-center text-2xl text-white p-2">{title}</h3>
 
-        <Carousel
+        {/* <Carousel
           show={4.2}
           dynamic
           responsive
@@ -24,7 +24,22 @@ export default function ExerciseSection(props) {
               </div>
             );
           })}
-        </Carousel>
+        </Carousel> */}
+
+        <Carousel
+          dynamic
+          responsive
+          show={4.2}
+          swiping
+          infinite
+          children={exercises.map((exercise, index) => {
+            return (
+              <div key={index}>
+                <ExerciseCard {...exercise} />
+              </div>
+            );
+          })}
+        ></Carousel>
       </section>
     )
   );
@@ -32,7 +47,7 @@ export default function ExerciseSection(props) {
 
 const LeftArrow = () => {
   return (
-    <div className="h-full cursor-pointer grid place-items-center">
+    <div className="h-full cursor-pointer grid place-items-center z-30">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         fill="none"
